@@ -1,0 +1,64 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+    <!--配置spring的监听器，默认只加载WEB-INF目录下的applicationContext.xml配置文件-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--设置配置文件路径-->
+    <!--当容器启动的时候自动装配容器 xml 配置信息-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationConfig.xml</param-value>
+    </context-param>
+
+
+    <!--    中文乱码过滤器-->
+    <!--    特别的，过滤器要放在 servlet 之前，否则报错-->
+    <filter>
+        <filter-name>characterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
+
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <!--    spring 框架提供的 DispatcherServlet 帮助你不用自己写相关的 HttpServlet ，而还可以进行
+               相应的业务逻辑处理
+       -->
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--    init-param 用于当服务器启动时就加载某个数据-->
+        <init-param>
+            <!--      contextConfigLocation：用于配置要加载的 spring.xml 控制信息-->
+            <param-name>contextConfigLocation</param-name>
+            <!--      classpath：用于加载配置 classes 生成文件中的文件。
+                     （结合 contextConfigLocation，就是当服务器启动时
+                     （load 设置为数值），去 classpath 路径下的 contextConfigLocation 文件进行加载。
+                     note：如果 contextConfgLocation 和 classpath 不写任何信息，
+                     则默认加载 /WEB-INF/applicationContext.xml
+             -->
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

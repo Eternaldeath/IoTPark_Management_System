@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.www"></context:component-scan>
+
+    <!--    视图解析器对象，用于对 return 页面，进行跳转-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+    >
+        <!--        配置跳转页面的目录-->
+        <property name="prefix" value="/WEB-INF/pages/"></property>
+        <!--        配置跳转页面的文件格式，即后缀-->
+        <property name="suffix" value=".jsp"></property>
+        <!--springmvc 默认不能跳转 html 页面，需要其他的辅助，太麻烦了，还是先用 jsp 页面-->
+    </bean>
+
+    <!--过滤静态资源-->
+    <mvc:resources location="/css/" mapping="/css/**" />
+    <mvc:resources location="/img/" mapping="/img/**" />
+    <mvc:resources location="/js/" mapping="/js/**" />
+    <mvc:resources location="/fonts/" mapping="/fonts/**" />
+    <mvc:resources location="/plugins/" mapping="/plugins/**" />
+    <mvc:resources location="/video/" mapping="/video/**" />
+    <mvc:resources location="/doc/" mapping="/doc/**" />
+
+
+    <!--    开启 springmvc 框架注释-->
+    <!--    开启此配置，默认就开启了适配器和处理映射器-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+
+
+</beans>

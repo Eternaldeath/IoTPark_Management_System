@@ -1,0 +1,149 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body,html{
+    height: 100%;
+    width: 100%;
+    font-size: 50px;
+
+}
+
+#container {
+    overflow: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url("../img/road.png"),no-repeat;
+    /*让图片覆盖全部*/
+    background-size: contain;
+    /*top: 0; left: 0; right: 0; bottom: 0;*/
+    /*background-color: yellow;*/
+    display: flex;
+    flex-direction: row;
+}
+
+.leftContainer{
+    width: 40%;
+}
+
+.rightContainer{
+    width: 60%;
+}
+
+.leftContainer,.rightContainer{
+    z-index: 1;
+    height: 100%;
+}
+
+#myCar{
+    width: 20%;
+    height: 15%;
+    position: absolute;
+    right: 0;
+    bottom: 10%;
+}
+
+
+
+#device,#deviceDown{
+    width: 100%;
+    height: 50%;
+
+}
+
+#deviceContain{
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+#screen,#stack{
+    width: 50%;
+    height: 100%;
+}
+
+#screen{
+    padding-left: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+#screenDown{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+}
+
+#screenUp{
+    width: 100%;
+    height: 70%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+#innerInfo{
+    height: 95%;
+    width: 95%;
+    background-color: black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+#downStack{
+    height: 70%;
+    width: 20%;
+    background-color: dimgrey;
+}
+
+/*展示板信息*/
+#head{
+    height: 20%;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#headInfo{
+    color: white;
+    font-size: 14px;
+}
+
+#headInfo p{
+    text-align: center;
+}
+
+
+
+
+
+#stack img{
+    width: 50%;
+    height: 50%;
+    position: relative;
+    top: 50%;
+}
+
+/*按钮*/
+.btnGroup{
+    width: 100%;
+    height: 50%;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.btnRow{
+    margin-bottom: 5px;
+}
